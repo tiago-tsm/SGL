@@ -31,7 +31,7 @@ class InflowCreateView(LoginRequiredMixin, CreateView):
 
 class InflowDetailView(LoginRequiredMixin, DetailView):
     model = models.Inflow
-    template_name = 'inflow_detail.html'
+    template_name = 'inflow_detail.html' #
    
 
 
