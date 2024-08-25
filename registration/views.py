@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from . import models, forms
 
-class RegistrationListView( ListView):
+class RegistrationListView(LoginRequiredMixin, ListView):
     model = models.CustomerRegistration
     template_name = 'registration_list.html'
     context_object_name = 'registration'
@@ -20,7 +21,7 @@ class RegistrationListView( ListView):
     
     
     
-class RegistrationCreateView(CreateView):
+class RegistrationCreateView(LoginRequiredMixin, CreateView):
         model = models.CustomerRegistration
         template_name = 'registration_create.html'
         form_class = forms.RegistrationForm
@@ -28,13 +29,13 @@ class RegistrationCreateView(CreateView):
         
         
         
-class RegistrationDetailView(DetailView):
+class RegistrationDetailView(LoginRequiredMixin, DetailView):
     model = models.CustomerRegistration
     template_name = 'registration_detail.html'
     
     
     
-class RegistrationUpdateView(UpdateView):
+class RegistrationUpdateView(LoginRequiredMixin, UpdateView):
     model = models.CustomerRegistration
     template_name = 'registration_update.html'
     form_class = forms.RegistrationForm
@@ -42,7 +43,7 @@ class RegistrationUpdateView(UpdateView):
    
 
 
-class RegistrationDeleteView(DeleteView):
+class RegistrationDeleteView(LoginRequiredMixin, DeleteView):
     model = models.CustomerRegistration
     template_name = 'registration_delete.html'
     success_url = reverse_lazy('registration_list')
