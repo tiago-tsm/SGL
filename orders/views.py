@@ -17,7 +17,7 @@ class OrdersCreateView(LoginRequiredMixin, CreateView):
 
 class OrdersUpdateView(LoginRequiredMixin, UpdateView):
     model = Orders
-    template_name = 'orders/order_form.html'
+    template_name = 'orders/order_.update.html'
     form_class = OrdersForm
     success_url = reverse_lazy('orders_list')  # Nome da URL para redirecionar após a atualização
 
