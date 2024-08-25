@@ -24,4 +24,4 @@ class OrdersUpdateView(LoginRequiredMixin, UpdateView):
 class OrdersDeleteView(LoginRequiredMixin, DeleteView):
     model = Orders
     template_name = 'orders_delete.html'
-    success_url = reverse_lazy('orders_list')  # Nome da URL para redirecionar após a exclusão
+    success_url = reverse_lazy('orders_list')  
